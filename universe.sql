@@ -48,7 +48,7 @@ SET default_table_access_method = heap;
 --
 
 CREATE TABLE public.asteroids (
-    asteroid_id integer NOT NULL,
+    asteroids_id integer NOT NULL,
     name character varying(30) NOT NULL,
     diameter_km numeric,
     hazardous boolean NOT NULL
@@ -76,7 +76,7 @@ ALTER TABLE public.asteroids_asteroid_id_seq OWNER TO freecodecamp;
 -- Name: asteroids_asteroid_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
 --
 
-ALTER SEQUENCE public.asteroids_asteroid_id_seq OWNED BY public.asteroids.asteroid_id;
+ALTER SEQUENCE public.asteroids_asteroid_id_seq OWNED BY public.asteroids.asteroids_id;
 
 
 --
@@ -234,10 +234,10 @@ ALTER SEQUENCE public.star_star_id_seq OWNED BY public.star.star_id;
 
 
 --
--- Name: asteroids asteroid_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+-- Name: asteroids asteroids_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
 --
 
-ALTER TABLE ONLY public.asteroids ALTER COLUMN asteroid_id SET DEFAULT nextval('public.asteroids_asteroid_id_seq'::regclass);
+ALTER TABLE ONLY public.asteroids ALTER COLUMN asteroids_id SET DEFAULT nextval('public.asteroids_asteroid_id_seq'::regclass);
 
 
 --
@@ -393,7 +393,7 @@ ALTER TABLE ONLY public.asteroids
 --
 
 ALTER TABLE ONLY public.asteroids
-    ADD CONSTRAINT asteroids_pkey PRIMARY KEY (asteroid_id);
+    ADD CONSTRAINT asteroids_pkey PRIMARY KEY (asteroids_id);
 
 
 --
